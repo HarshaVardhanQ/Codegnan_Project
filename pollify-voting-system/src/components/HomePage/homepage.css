@@ -1,0 +1,137 @@
+.Background1 {
+  background-color: #f1f1f1;
+  background-image: url('wall7.jpg');
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.home-title h1 {
+  font-size: 36px;
+  color: #9c1919;
+}
+
+.home-title h2 {
+  font-size: 24px;
+  color: #0c0091;
+}
+
+.home-button {
+  text-align: center;
+}
+
+.home-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 10px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 2px 6px rgba(242, 100, 100, 0.1);
+  font-size: 16px;
+}
+
+.home-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.home-btn:active {
+  transform: translateY(1px);
+}
+
+.home-btn:hover {
+  background-color: #2b7c00;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.home-btn:focus {
+  outline: none;
+}
+
+.home-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.home-btn.primary {
+  background-color: #9c1919;
+}
+
+.home-btn.primary:hover {
+  background-color: #780606;
+}
+
+.home-btn.secondary {
+  background-color: #333;
+}
+
+.home-btn.secondary:hover {
+  background-color: #555;
+}
+
+/* Additional Animations */
+
+.home-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: height 0.3s;
+}
+
+.home-btn:hover:before {
+  height: 100%;
+}
+
+.home-btn:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  transition: width 0.3s, height 0.3s, opacity 0.3s;
+}
+
+.home-btn:hover:after {
+  width: 200px;
+  height: 200px;
+  opacity: 1;
+}
+
+.home-btn.secondary:before {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.home-btn.secondary:hover:before {
+  height: 100%;
+}
+
+.home-btn.secondary:after {
+  background-color: rgba(0, 0, 0, 0.5);
+}

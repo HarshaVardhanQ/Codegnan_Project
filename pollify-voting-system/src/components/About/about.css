@@ -1,0 +1,86 @@
+.About-about-us {
+  background-color: #1b1b1b;
+  color: #FFFFFF;
+  padding: 40px;
+  text-align: center;
+}
+
+.About-about-us h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.About-about-us p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.About-about_1,
+.About-about_2 {
+  background-color: #F2F7FF;
+  padding: 40px;
+  margin-top: 40px;
+}
+
+.About-about_1 h2,
+.About-about_2 h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.About-about_1 p,
+.About-about_2 p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.About-about_1 ul,
+.About-about_2 ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.About-about_1 li,
+.About-about_2 li {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+footer {
+  background-color: #2d2d2d;
+  color: #FFFFFF;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;  
+}
+
+/* Animations */
+.About-about-us {
+  animation: fade-in 1s ease-out;
+}
+
+.About-about_1,
+.About-about_2 {
+  animation: slide-up 1s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,139 @@
+/* voting.css */
+
+.voting-polls-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #d1d1d1;
+    font-style: italic;
+    color: #888;
+    text-align: center;
+    text-decoration: solid;
+    font-weight: bold;
+  }
+  
+  .voting-polls-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .poll-id-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .poll-id-input input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 200px;
+  }
+  
+  .poll-details-button {
+    padding: 10px 20px;
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .poll-details-button:hover {
+    background-color: #1967d2;
+  }
+  
+  .error-message {
+    color: #f44336;
+    margin-bottom: 10px;
+  }
+  
+  .poll-details {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 400px;
+  }
+  
+  .poll-question {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .poll-options {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .option-vote-item {
+    margin-bottom: 10px;
+  }
+  
+  .option-vote-item input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  .poll-expiration {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .vote-button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .vote-button:hover {
+    background-color: #45a049;
+  }
+  
+  .vote-success-message {
+    color: #4caf50;
+    margin-top: 10px;
+  }
+  
+  /* Add animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  /* Apply animations */
+  .voting-polls-container {
+    animation: fadeIn 0.5s ease;
+  }
+  
+  .poll-details {
+    animation: scaleIn 0.5s ease;
+  }
+  .p{
+    font-style: italic;
+  }

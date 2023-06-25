@@ -1,0 +1,38 @@
+.navbar .nav-container-a .h1{
+    color:cyan ;
+}
+.navbar .nav-container-a .h2{
+    color:cyan ;
+}
+.navbar .nav-container-a .h3{
+    color:cyan ;
+}
+.navbar .nav-container-a .h4{
+    color:cyan ;
+}
+    .navbar{
+    color: aqua;
+    background-color:white ;
+}
+.navbar .nav-container-a{
+    border: 1px;
+    margin: auto;
+}
+.navbar .nav-container-a .signup{
+    border: 2px;
+    border-color: aqua;
+    border-radius: 1px;
+    margin-left: 10px;
+    color: cyan;
+}
+.navbar .nav-container-a .login{
+    border: 2px;
+    border-color: aqua;
+    border-radius: 1px;
+    margin-left: 985px;
+    color: cyan;
+}
+.bg-dark {
+    color: aqua;
+    background-color: teal;
+}

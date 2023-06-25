@@ -1,0 +1,100 @@
+.Background2 {
+  background-image: url('tmp.jpg');
+  min-height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-container {
+  width: auto;
+  max-width: 768px !important;
+  margin: 0 auto !important;
+  padding: 20px;
+  background-color: rgba(247, 247, 247, 0.8); /* Slightly transparent background */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.create-container p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.create-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-container .form-group {
+  margin-bottom: 20px;
+}
+
+.create-container label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.create-container input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.create-container .add-option,
+.create-container .delete-option {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-container .add-option:hover,
+.create-container .delete-option:hover {
+  background-color: #555;
+}
+
+.create-container .error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.create-container .success-message {
+  color: #6bbd6b;
+  margin-bottom: 10px;
+}
+
+.create-container .form-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.create-container button[type="submit"],
+.create-container button[type="button"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-container button[type="submit"]:hover,
+.create-container button[type="button"]:hover {
+  background-color: #555;
+}

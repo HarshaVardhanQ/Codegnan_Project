@@ -1,0 +1,237 @@
+.create-polls-container {
+  background-image: url('tmp.jpg');
+  min-height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-polls-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.create-polls-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-polls-container .create-polls-form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.create-polls-container label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.create-polls-container input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  width: 100%;
+}
+
+.create-polls-container .option-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.create-polls-container .remove-option-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-polls-container .remove-option-btn:hover {
+  background-color: #555;
+}
+
+.create-polls-container .add-option-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 5px;
+}
+
+.create-polls-container .add-option-btn:hover {
+  background-color: #555;
+}
+
+.create-polls-container .submit-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-polls-container .submit-btn:hover {
+  background-color: #555;
+}
+
+.create-polls-container .error-message {
+  color: rgb(0, 0, 0);
+  margin-top: 10px;
+}
+
+.create-polls-container .success-message {
+  margin-top: 10px;
+}
+
+/* Additional Styles */
+
+.create-polls-container input[type="text"]:focus {
+  outline: none;
+  border-color: #777;
+}
+
+.create-polls-container .remove-option-btn:focus,
+.create-polls-container .add-option-btn:focus,
+.create-polls-container .submit-btn:focus {
+  outline: none;
+  border-color: #777;
+}
+
+.create-polls-container .remove-option-btn:active,
+.create-polls-container .add-option-btn:active,
+.create-polls-container .submit-btn:active {
+  transform: translateY(2px);
+}
+
+.create-polls-container .remove-option-btn:disabled,
+.create-polls-container .add-option-btn:disabled,
+.create-polls-container .submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.create-polls-container .remove-option-btn:disabled:hover,
+.create-polls-container .add-option-btn:disabled:hover,
+.create-polls-container .submit-btn:disabled:hover {
+  background-color: #333;
+}
+
+.create-polls-container .animated {
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+}
+
+.create-polls-container .fade-in {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.create-polls-container .slide-up {
+  animation-name: slideUp;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.create-polls-container .slide-down {
+  animation-name: slideDown;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.create-polls-container .pulse {
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Beautiful Colors */
+
+.create-polls-container {
+  background-color: #f2f2f2;
+}
+
+.create-polls-container h2 {
+  color: #333;
+}
+
+.create-polls-container label {
+  color: #555;
+}
+
+.create-polls-container input[type="text"] {
+  background-color: #f9f9f9;
+  border-color: #ccc;
+}
+
+.create-polls-container .remove-option-btn,
+.create-polls-container .add-option-btn,
+.create-polls-container .submit-btn {
+  background-color: #333;
+  color: #fff;
+}
+
+.create-polls-container .remove-option-btn:hover,
+.create-polls-container .add-option-btn:hover,
+.create-polls-container .submit-btn:hover {
+  background-color: #555;
+}
+
+.create-polls-container .error-message {
+  color: red;
+}
+
+.create-polls-container .success-message {
+  color: rgb(0, 71, 178);
+}

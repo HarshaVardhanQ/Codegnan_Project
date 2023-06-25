@@ -1,0 +1,62 @@
+.intro-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.intro-content {
+  transition: transform 0.3s ease-out;
+}
+
+.intro-heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.intro-description {
+  font-size: 1.5rem;
+  margin: auto;
+  margin-bottom: 1.5rem;
+}
+
+.intro-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  background-color: #14bedc;
+  padding: 1px 1px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.intro-input {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 300px;
+  font-size: 1rem;
+}
+
+.intro-submit {
+  padding: 0.6rem 1rem;
+  background-color: #007bff;
+  color: #fff; /* Change text color to white */
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-out; /* Add transition for background-color */
+}
+
+.intro-submit:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}
+
+.Back {
+  background-image: url('wallpaper.jpg');
+  background-size: cover;
+}
