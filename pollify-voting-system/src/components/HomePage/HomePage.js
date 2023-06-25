@@ -19,7 +19,7 @@ function HomePage() {
       return (
         <>
           <Link to="/login" className="home-btn">LOGIN</Link>
-          <Link to="/signin" className="home-btn">REGISTER</Link>
+          <Link to="/signup" className="home-btn">REGISTER</Link>
         </>
       );
     }
