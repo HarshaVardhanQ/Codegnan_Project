@@ -5,7 +5,7 @@ import './voting.css';
 function Voting() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [pollId, setPollId] = useState('');
-  const [poll, setPoll] = useState({ optionsVotes: [], question: '', expiryDate: '', userVoted: false });
+  const [poll, setPoll] = useState({ optionsVotes: [], question: '', expiryDate: null, userVoted: false });
   const [options, setOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState('');
   const [error, setError] = useState('');
@@ -32,6 +32,22 @@ function Voting() {
       return;
     }
 
+    // Check if the entered poll ID is a number
+    if (isNaN(pollId)) {
+      setError('Invalid poll ID. Please enter a valid number.');
+      setPoll({ optionsVotes: [], question: '', expiryDate: null, userVoted: false });
+      setOptions([]);
+      return;
+    }
+
+    // Check if the pollId is empty
+    if (!pollId) {
+      setError('Please give a poll ID.');
+      setPoll({ optionsVotes: [], question: '', expiryDate: null, userVoted: false });
+      setOptions([]);
+      return;
+    }
+
     try {
       const response = await axios.get(`http://localhost:5000/api/polls/${pollId}`);
       if (response.status === 200) {
@@ -39,8 +55,8 @@ function Voting() {
         const expiryDate = new Date(fetchedPoll.expiryDate);
         const currentDate = new Date();
         if (expiryDate < currentDate) {
-          setError('Poll has expired');
-          setPoll({ optionsVotes: [], question: '', expiryDate: '', userVoted: false });
+          setError('Poll is expired');
+          setPoll({ ...fetchedPoll, userVoted: false });
           setOptions([]);
         } else {
           const user = localStorage.getItem('loggedInUser');
@@ -57,7 +73,7 @@ function Voting() {
       console.error('An error occurred while fetching poll details');
       console.error(error);
       setError('Failed to fetch poll details. Please try again later.');
-      setPoll({ optionsVotes: [], question: '', expiryDate: '', userVoted: false });
+      setPoll({ optionsVotes: [], question: '', expiryDate: null, userVoted: false });
       setOptions([]);
     }
   };
@@ -130,37 +146,43 @@ function Voting() {
             </button>
           </div>
           {error && <p className="error-message">{error}</p>}
-          {poll && (
+          {poll.expiryDate !== null && (
             <div className="poll-details">
-              <h3 className="poll-question">{poll.question}</h3>
-              {!voted && !poll.userVoted && (
+              {!isPollExpired(poll.expiryDate) ? (
                 <>
-                  <ul className="poll-options">
-                    {options.map((option, index) => (
-                      <li className="option-vote-item" key={index}>
-                        <input
-                          type="radio"
-                          name="option"
-                          value={option}
-                          checked={selectedOption === option}
-                          onChange={handleOptionChange}
-                        />
-                        {option}
-                      </li>
-                    ))}
-                  </ul>
-                  {!isPollExpired(poll.expiryDate) && (
-                    <p className="poll-expiration">
-                      Expires on: {formatDateTime(poll.expiryDate)}
-                    </p>
+                  <h3 className="poll-question">{poll.question}</h3>
+                  {!voted && !poll.userVoted && (
+                    <>
+                      <ul className="poll-options">
+                        {options.map((option, index) => (
+                          <li className="option-vote-item" key={index}>
+                            <input
+                              type="radio"
+                              name="option"
+                              value={option}
+                              checked={selectedOption === option}
+                              onChange={handleOptionChange}
+                            />
+                            {option}
+                          </li>
+                        ))}
+                      </ul>
+                      {!isPollExpired(poll.expiryDate) && (
+                        <p className="poll-expiration">
+                          Expires on: {formatDateTime(poll.expiryDate)}
+                        </p>
+                      )}
+                      <button className="vote-button" onClick={handleVote}>
+                        Vote
+                      </button>
+                    </>
                   )}
-                  <button className="vote-button" onClick={handleVote}>
-                    Vote
-                  </button>
+                  {voted && <p className="vote-success-message">Vote submitted successfully!</p>}
+                  {poll.userVoted && <p className="already-voted-message">You have already voted for this poll.</p>}
                 </>
+              ) : (
+                <p className="poll-expired-message">This poll has expired.</p>
               )}
-              {voted && <p className="vote-success-message">Vote submitted successfully!</p>}
-              {poll.userVoted && <p className="already-voted-message">You have already voted for this poll.</p>}
             </div>
           )}
         </>

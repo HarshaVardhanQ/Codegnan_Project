@@ -41,6 +41,13 @@ const SignUp = () => {
         return;
       }
 
+      // Password validation
+      const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      if (!passwordPattern.test(password)) {
+        setError('Password must include at least 1 uppercase letter, 1 lowercase letter, 1 special symbol, and be at least 8 characters long.');
+        return;
+      }
+
       const usernameAvailabilityResponse = await checkUsernameAvailability(username);
       if (!usernameAvailabilityResponse.available) {
         setError('Username is already taken. Please choose a different username.');

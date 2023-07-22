@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './login.css';
 
@@ -7,14 +7,34 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loggedInUser, setLoggedInUser] = useState('');
+  const sessionTimeoutRef = useRef(null); // Ref for the session timeout
 
   useEffect(() => {
     // Check if a user is already logged in
     const user = localStorage.getItem('loggedInUser');
-    if (user) {
+    const sessionExpiry = localStorage.getItem('sessionExpiry');
+
+    if (user && sessionExpiry && new Date().getTime() < parseInt(sessionExpiry, 10)) {
+      // User is logged in and the session is still valid
       setLoggedInUser(user);
+      setSessionTimeout(); // Reset the session timer
+    } else {
+      // User is not logged in or the session has expired
+      handleLogout(); // Clear any stale user data
     }
   }, []);
+
+  const setSessionTimeout = () => {
+    // Set the session timeout to 4 hours from now
+    const sessionExpiryTime = new Date().getTime() + 4 * 60 * 60 * 1000;
+    localStorage.setItem('sessionExpiry', sessionExpiryTime);
+    // Clear any existing session timeout
+    if (sessionTimeoutRef.current) {
+      clearTimeout(sessionTimeoutRef.current);
+    }
+    // Set a new session timeout
+    sessionTimeoutRef.current = setTimeout(handleLogout, 4 * 60 * 60 * 1000);
+  };
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -30,7 +50,12 @@ const Login = () => {
     setUsername('');
     setPassword('');
     localStorage.removeItem('loggedInUser');
+    localStorage.removeItem('sessionExpiry');
     setLoggedInUser('');
+    // Clear the session timeout
+    if (sessionTimeoutRef.current) {
+      clearTimeout(sessionTimeoutRef.current);
+    }
     // Send logout request to the server
     axios
       .post('http://localhost:5000/api/logout')
@@ -66,6 +91,7 @@ const Login = () => {
           // Store the logged-in user in local storage
           localStorage.setItem('loggedInUser', username);
           setLoggedInUser(username);
+          setSessionTimeout(); // Set the session timeout after successful login
         } else {
           setError('Invalid username or password. Please try again or create a new account.');
         }
@@ -131,7 +157,9 @@ const Login = () => {
               Login
             </button>
           </form>
-          <p className="log-info">Don't have an account? <a href="/SignUp">Create one</a>.</p>
+          <p className="log-info">
+            Don't have an account? <a href="/SignUp">Create one</a>.
+          </p>
         </>
       )}
     </div>
